@@ -1,4 +1,4 @@
-class Transaction < Product
+class Transaction
 
 
   def initialize
