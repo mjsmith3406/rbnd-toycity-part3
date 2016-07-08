@@ -1,4 +1,4 @@
-class Customer
+class Customer < Transaction
   attr_reader :name
   @@names = []
   def initialize(options={})

@@ -1,4 +1,4 @@
-class Product
+class Product < Transaction
   attr_reader :title, :price, :stock
   @@products = []
   def self.add(item)
