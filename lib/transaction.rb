@@ -27,5 +27,8 @@ class Transaction
     @@trans << @purchase
     #only printing 1 needs to print 2
   end
+  def self.find(input)
+    
+  end
 
 end
