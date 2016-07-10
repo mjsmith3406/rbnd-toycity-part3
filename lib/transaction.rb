@@ -24,11 +24,10 @@ class Transaction
   end
   def purchase(title)
     @@purchase += 1
-    @@trans << @purchase
+    @@trans << self
     #only printing 1 needs to print 2
   end
   def self.find(input)
-    
+    @@trans.find { |item| item.title == (input)}
   end
-
 end
