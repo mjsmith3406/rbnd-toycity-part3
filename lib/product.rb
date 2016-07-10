@@ -1,3 +1,5 @@
+require_relative 'transaction.rb'
+
 class Product < Transaction
   attr_reader :title, :price, :stock
   @@products = []
@@ -24,14 +26,17 @@ class Product < Transaction
   def in_stock?
     stock > 0
   end
+  def stock
+    @stock - 1
+  end
 
   private
 
   def add_to_products
-    if @@products.map { |product| product.title }.include? @title
-      raise DuplicateProductError, "#{title} already exists"
-    else
-      Product.add(self)
-    end
+      if @@products.map { |item| item.title}.include? @title
+        raise DuplicateProductError, "#{@title} already exists"
+      else
+        Product.add(self)
+      end
   end
 end

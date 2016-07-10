@@ -1,3 +1,5 @@
+require_relative 'transaction.rb'
+
 class Customer < Transaction
   attr_reader :name
   @@names = []
