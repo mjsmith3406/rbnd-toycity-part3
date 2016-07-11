@@ -26,9 +26,9 @@ class Product < Transaction
   def in_stock?
     stock > 0
   end
-  def stock
-    @stock - 1
-  end
+  #def stock
+    #@stock - 1
+  #end
 
   private
 

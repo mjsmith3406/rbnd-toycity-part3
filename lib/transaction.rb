@@ -1,5 +1,5 @@
 class Transaction
-  attr_reader :id, :purchase
+  attr_reader :id, :name, :title
   @@trans = []
   @@id = 1
   @@purchase = 1
@@ -7,7 +7,7 @@ class Transaction
     @id = @@id
     @title = title
     @name = name
-    @purchase = @@purchase
+    add_to_trans
   end
   def self.all
     @@trans
@@ -16,18 +16,25 @@ class Transaction
     @@id += 1
     @@trans << @id
   end
+  def purchase(title)
+    @@purchase += 1
+    @@trans << self
+  end
+
+  def self.find(input)
+    @@trans.find(input)
+  end
   def product
-    @title
+    @@trans.find { |item| item.title}
   end
   def customer
     @name
   end
-  def purchase(title)
-    @@purchase += 1
-    @@trans << self
-    #only printing 1 needs to print 2
-  end
-  def self.find(input)
-    @@trans.find { |item| item.title == (input)}
+
+
+  private
+
+  def add_to_trans
+    @@trans.push(self)
   end
 end
