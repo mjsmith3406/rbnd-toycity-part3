@@ -1,6 +1,4 @@
-require_relative 'transaction.rb'
-
-class Customer < Transaction
+class Customer
   attr_reader :name
   @@names = []
   def initialize(options={})
@@ -15,6 +13,9 @@ class Customer < Transaction
   end
   def self.find_by_name(input)
     @@names.find { |item| item.name == input}
+  end
+  def purchase(product)
+    Transaction.new(self, product)
   end
   private
 

@@ -1,6 +1,4 @@
-require_relative 'transaction.rb'
-
-class Product < Transaction
+class Product
   attr_reader :title, :price, :stock
   @@products = []
   def self.add(item)
@@ -26,9 +24,6 @@ class Product < Transaction
   def in_stock?
     stock > 0
   end
-  #def stock
-    #@stock - 1
-  #end
 
   private
 

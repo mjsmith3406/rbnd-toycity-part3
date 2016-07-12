@@ -2,38 +2,39 @@
 class Transaction
   attr_reader :id, :name, :title
   @@trans = []
-  @@id = 1
+  @@id = 0
   @@purchase = 1
-  def initialize(name, title)
+  def initialize(product, customer)
+    add_id
     @id = @@id
-    @title = title
-    @name = name
+    @customer = customer
+    @product = product
     add_to_trans
   end
   def self.all
     @@trans
   end
-  def self.id
-    @@id += 1
-    @@trans << @id
-  end
-  def purchase(title)
-    @@purchase += 1
-    @@trans << self
-  end
 
   def self.find(input)
-    @@trans.index(input)
+    @@trans.find { |item| item.id == input }
   end
   def product
-    @@trans.find { |item| item.title}
+    
   end
   def customer
-    @name
+
   end
 
 
   private
+
+  def add_id
+    @@id += 1
+  end
+
+  def remove_stock
+    @product.stock -= 1
+  end
 
   def add_to_trans
     @@trans.push(self)
