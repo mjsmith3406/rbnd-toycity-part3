@@ -6,6 +6,7 @@ class Transaction
   @@purchase = 1
   def initialize(product, customer)
     add_id
+    #remove_stock
     @id = @@id
     @customer = customer
     @product = product
@@ -19,7 +20,7 @@ class Transaction
     @@trans.find { |item| item.id == input }
   end
   def product
-
+    
   end
   def customer
 
@@ -32,15 +33,15 @@ class Transaction
     @@id += 1
   end
 
-  def remove_stock
-    @product.stock -= 1
-  end
+  #def remove_stock
+    #@product.stock -= 1
+  #end
 
   def add_to_trans
     #if @product.stock > 0
       @@trans.push(self)
-  #  else
-    #  raise OutOfStockError, "'#{title}' is out of stock."
+    #else
+      #raise OutOfStockError, "'#{title}' is out of stock."
     #end
   end
 end
