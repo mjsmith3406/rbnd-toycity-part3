@@ -19,7 +19,7 @@ class Transaction
     @@trans.find { |item| item.id == input }
   end
   def product
-    
+
   end
   def customer
 
@@ -37,6 +37,10 @@ class Transaction
   end
 
   def add_to_trans
-    @@trans.push(self)
+    #if @product.stock > 0
+      @@trans.push(self)
+  #  else
+    #  raise OutOfStockError, "'#{title}' is out of stock."
+    #end
   end
 end

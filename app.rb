@@ -63,5 +63,5 @@ require_relative "lib/transaction"
  transaction2 = Transaction.find(2)
  puts transaction2.product == nanoblock # Should return true
 
-# walter.purchase(firehouse)
+ walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
