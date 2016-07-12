@@ -1,3 +1,4 @@
+
 class Transaction
   attr_reader :id, :name, :title
   @@trans = []
@@ -22,7 +23,7 @@ class Transaction
   end
 
   def self.find(input)
-    @@trans.find(input)
+    @@trans.index(input)
   end
   def product
     @@trans.find { |item| item.title}
