@@ -1,17 +1,19 @@
 
 class Transaction
-  attr_reader :id, :name, :title
+  attr_reader :id, :product, :customer
   @@trans = []
   @@id = 0
   @@purchase = 1
-  def initialize(product, customer)
+
+  def initialize(customer, product)
     add_id
-    #remove_stock
     @id = @@id
     @customer = customer
     @product = product
     add_to_trans
+    remove_stock
   end
+
   def self.all
     @@trans
   end
@@ -19,16 +21,10 @@ class Transaction
   def self.find(input)
     @@trans.find { |item| item.id == input }
   end
-  def product
-    @@trans.find(@product)
-  end
-  def customer
 
-  end
   def self.find_by_customer(input)
-    @@trans.find { |item| item.customer == input}
+    @@trans.find { |item| item.customer.name == input}
   end
-
 
   private
 
@@ -36,11 +32,15 @@ class Transaction
     @@id += 1
   end
 
+  def remove_stock
+    @product.stock -= 1
+  end
+
   def add_to_trans
-    if @@trans.find { |item| item.stock > 0}
+    if product.stock > 0
       @@trans.push(self)
     else
-      raise OutOfStockError, "'#{}' is out of stock."
+      raise OutOfStockError, "'#{product.title}' is out of stock."
     end
   end
 end

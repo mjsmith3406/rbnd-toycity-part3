@@ -1,0 +1,17 @@
+I spent more time on this that the other projects. It was a a little
+difficult to get my head around objects and having multiple classes.
+I feel better now over coming the problems I had and getting the right
+output.
+
+1) find_by_customer, is the first thing I thought of to add. I think it
+would be nice if a person needed to find the customer weather to see
+if they exist and maybe could be expanded to see all the purchases they
+made.
+2) sort_by_stock, is the second thing I added. I thought it would be
+nice to know what is in stock. This way you can see which item has
+the most stock down to what is out of stock.
+
+I still have room to grow in understanding how objects work and how
+exactly I can access them when ever I need them. I had a lot of
+trouble with this project, but I came out of it with a little better
+understanding of how OOP works. 
