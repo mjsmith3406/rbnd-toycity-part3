@@ -24,8 +24,12 @@ class Product
   def in_stock?
     stock > 0
   end
+  def self.sort_by_stock
+    @@products.sort_by { |item| item.stock}
+  end
 
   private
+
 
   def add_to_products
       if @@products.map { |item| item.title}.include? @title

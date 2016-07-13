@@ -20,10 +20,13 @@ class Transaction
     @@trans.find { |item| item.id == input }
   end
   def product
-    
+    @@trans.find(@product)
   end
   def customer
 
+  end
+  def self.find_by_customer(input)
+    @@trans.find { |item| item.customer == input}
   end
 
 
@@ -33,15 +36,11 @@ class Transaction
     @@id += 1
   end
 
-  #def remove_stock
-    #@product.stock -= 1
-  #end
-
   def add_to_trans
-    #if @product.stock > 0
+    if @@trans.find { |item| item.stock > 0}
       @@trans.push(self)
-    #else
-      #raise OutOfStockError, "'#{title}' is out of stock."
-    #end
+    else
+      raise OutOfStockError, "'#{}' is out of stock."
+    end
   end
 end

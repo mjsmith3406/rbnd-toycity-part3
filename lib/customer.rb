@@ -17,6 +17,7 @@ class Customer
   def purchase(product)
     Transaction.new(self, product)
   end
+  
   private
 
   def add_to_name
