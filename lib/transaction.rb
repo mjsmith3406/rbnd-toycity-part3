@@ -6,12 +6,12 @@ class Transaction
   @@purchase = 1
 
   def initialize(customer, product)
-    add_id
-    @id = @@id
     @customer = customer
     @product = product
     add_to_trans
     remove_stock
+    add_id
+    @id = @@id
   end
 
   def self.all
@@ -28,10 +28,6 @@ class Transaction
 
   private
 
-  def add_id
-    @@id += 1
-  end
-
   def remove_stock
     @product.stock -= 1
   end
@@ -43,4 +39,8 @@ class Transaction
       raise OutOfStockError, "'#{product.title}' is out of stock."
     end
   end
+  def add_id
+    @@id += 1
+  end
+
 end
